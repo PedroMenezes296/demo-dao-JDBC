@@ -25,11 +25,12 @@ public class Program2 {
             System.out.println(dep);
         }
 
-//        System.out.println("\n=== TESTE 3 : SELLER findAll");
-//        list = sellerDao.findAll();
-//        for (Seller obj : list) {
-//            System.out.println(obj);
-//        }
+       System.out.println("\n=== TESTE 3 : DEPARTMENT Insert");
+        Department newDepartment = new Department(5,"TeleMarketing");
+        departmentDao.insert(newDepartment);
+        System.out.println("Inserted! New id = " +  newDepartment.getId());
+
+
 //
 //        System.out.println("\n=== TESTE 4 : SELLER insert");
 //        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
