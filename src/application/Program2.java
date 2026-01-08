@@ -25,29 +25,29 @@ public class Program2 {
             System.out.println(dep);
         }
 
-        System.out.println("\n=== TESTE 3 : SELLER findAll");
-        list = sellerDao.findAll();
-        for (Seller obj : list) {
-            System.out.println(obj);
-        }
-
-        System.out.println("\n=== TESTE 4 : SELLER insert");
-        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
-        sellerDao.insert(newSeller);
-        System.out.println("Inserted! New id = " +  newSeller.getId());
-
-        System.out.println("\n=== TESTE 5 : SELLER update");
-        seller = sellerDao.findById(1);
-        seller.setName("Martha Waine");
-        sellerDao.update(seller);
-        System.out.println("Updated! New id = " +  seller.getId());
-
-
-        System.out.println("\n=== TESTE 6 : SELLER delete");
-        System.out.println("Enter id for delete test: ");
-        int id = sc.nextInt();
-        sellerDao.deleteById(id);
-        System.out.println("Deleted completed!");
+//        System.out.println("\n=== TESTE 3 : SELLER findAll");
+//        list = sellerDao.findAll();
+//        for (Seller obj : list) {
+//            System.out.println(obj);
+//        }
+//
+//        System.out.println("\n=== TESTE 4 : SELLER insert");
+//        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+//        sellerDao.insert(newSeller);
+//        System.out.println("Inserted! New id = " +  newSeller.getId());
+//
+//        System.out.println("\n=== TESTE 5 : SELLER update");
+//        seller = sellerDao.findById(1);
+//        seller.setName("Martha Waine");
+//        sellerDao.update(seller);
+//        System.out.println("Updated! New id = " +  seller.getId());
+//
+//
+//        System.out.println("\n=== TESTE 6 : SELLER delete");
+//        System.out.println("Enter id for delete test: ");
+//        int id = sc.nextInt();
+//        sellerDao.deleteById(id);
+//        System.out.println("Deleted completed!");
     }
 }
 
