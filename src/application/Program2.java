@@ -38,12 +38,11 @@ public class Program2 {
         newDepartment.setName(sc.nextLine());
         departmentDao.update(newDepartment);
         System.out.println("Updated! New id = " +  newDepartment.getId() + " New Name = " +  newDepartment.getName());
-//
-//        System.out.println("\n=== TESTE 5 : SELLER update");
-//        seller = sellerDao.findById(1);
-//        seller.setName("Martha Waine");
-//        sellerDao.update(seller);
-//        System.out.println("Updated! New id = " +  seller.getId());
+
+        System.out.println("\n=== TESTE 6 : Department deleteById");
+        System.out.println("Enter id for delete test: ");
+        departmentDao.deleteById(sc.nextInt());
+        System.out.println("Deleted completed!");
 //
 //
 //        System.out.println("\n=== TESTE 6 : SELLER delete");
