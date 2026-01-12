@@ -25,17 +25,19 @@ public class Program2 {
             System.out.println(dep);
         }
 
-       System.out.println("\n=== TESTE 3 : DEPARTMENT Insert");
+        System.out.println("\n=== TESTE 3 : DEPARTMENT insert");
         Department newDepartment = new Department(5,"TeleMarketing");
         departmentDao.insert(newDepartment);
         System.out.println("Inserted! New id = " +  newDepartment.getId());
 
-
-//
-//        System.out.println("\n=== TESTE 4 : SELLER insert");
-//        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
-//        sellerDao.insert(newSeller);
-//        System.out.println("Inserted! New id = " +  newSeller.getId());
+        System.out.println("\n=== TESTE 4 : DEPARTMENT update");
+        System.out.print("Informe o numero Id que deseja modificar o Nome: ");
+        newDepartment = departmentDao.findById(sc.nextInt());
+        sc.nextLine(); // consome o ENTER pendente
+        System.out.print("Informe o nome que deseja colocar: ");
+        newDepartment.setName(sc.nextLine());
+        departmentDao.update(newDepartment);
+        System.out.println("Updated! New id = " +  newDepartment.getId() + " New Name = " +  newDepartment.getName());
 //
 //        System.out.println("\n=== TESTE 5 : SELLER update");
 //        seller = sellerDao.findById(1);

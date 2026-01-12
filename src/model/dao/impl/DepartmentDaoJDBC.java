@@ -24,12 +24,11 @@ public class DepartmentDaoJDBC implements DepartmentDao {
         PreparedStatement st = null;
         try{
             st = connection.prepareStatement("INSERT INTO Department " +
-                                                 "(Id, Name) " +
+                                                 "(Name) " +
                                                  "VALUES" +
-                                                 "(?, ?)",
+                                                 "(?)",
                     Statement.RETURN_GENERATED_KEYS);
-            st.setInt(1,obj.getId());
-            st.setString(2,obj.getName());
+            st.setString(1,obj.getName());
 
             int rowsAffected = st.executeUpdate();
 
@@ -51,7 +50,22 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
     @Override
     public void update(Department obj) {
+        PreparedStatement st = null;
+        try{
+            st = connection.prepareStatement("UPDATE department SET Name = ? WHERE Id = ?");
+            st.setString(1,obj.getName());
+            st.setInt(2,obj.getId());
 
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected == 0) {
+                throw new DbException("No department found with Id = " + obj.getId());
+            }
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }finally{
+            DB.closeStatement(st);
+        }
     }
 
     @Override
@@ -64,10 +78,10 @@ public class DepartmentDaoJDBC implements DepartmentDao {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
-            st = connection.prepareStatement("SELECT department.*, seller.*\n" +
-                    "FROM department\n" +
-                    "LEFT JOIN seller\n" +
-                    "ON seller.DepartmentId = department.Id\n" +
+            st = connection.prepareStatement("SELECT department.*, seller.* " +
+                    "FROM department " +
+                    "LEFT JOIN seller " +
+                    "ON seller.DepartmentId = department.Id " +
                     "WHERE department.Id = ?");
 
             st.setInt(1, id);
